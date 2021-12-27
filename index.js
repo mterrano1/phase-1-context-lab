@@ -22,9 +22,9 @@ function createTimeInEvent(dateStamp){
     const timeObj = {
         type: 'TimeIn',
         hour: parseInt(hour),
-        date: date
+        date: date,
     }
-    return timeObj
+    return this.timeInEvents.push(timeObj)
 }
 
 /*
