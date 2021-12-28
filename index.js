@@ -7,7 +7,7 @@ function createEmployeeRecord(array){
         title: array[2],
         payPerHour: array[3],
         timeInEvents: [],
-        timeOutEvents: [],
+        timeOutEvents: []
     }
     return employeeRecord
 }
@@ -17,15 +17,51 @@ function createEmployeeRecords(arrays){
     return employeeData
 }
 
+// function createEmployeeRecords(arrays){
+//     const employeeData = arrays.map(array => createEmployeeRecord(array))
+//     return employeeData
+// }
+
 function createTimeInEvent(dateStamp){
     let [date, hour] = dateStamp.split(' ')
     const timeObj = {
         type: 'TimeIn',
         hour: parseInt(hour),
-        date: date,
+        date: date
     }
-    return this.timeInEvents.push(timeObj)
+    this.timeInEvents.push(timeObj)
+    return this
 }
+
+function createTimeOutEvent(dateStamp){
+    let [date, hour] = dateStamp.split(' ')
+    const timeObj = {
+        type: 'TimeOut',
+        hour: parseInt(hour),
+        date: date
+    }
+    this.timeOutEvents.push(timeObj)
+    return this
+}
+
+function hoursWorkedOnDate(date){
+    let findTimeInDate = this.timeInEvents.find(obj => obj.date === date);
+    let startTime = findTimeInDate.hour;
+    let findTimeOutDate = this.timeOutEvents.find(obj => obj.date === date);
+    let endTime = findTimeOutDate.hour;
+    return (endTime - startTime) / 100;
+}
+
+// function wagesEarnedOnDate(date){
+//     let hoursWorked = hoursWorkedOnDate(date);
+//     return hoursWorked * this.payPerHour
+// }
+
+function wagesEarnedOnDate(date){
+    let hoursWorked = hoursWorkedOnDate(date);
+    return hoursWorked * this.payPerHour
+}
+
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
