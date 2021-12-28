@@ -57,8 +57,13 @@ function hoursWorkedOnDate(date){
 //     return hoursWorked * this.payPerHour
 // }
 
+// function wagesEarnedOnDate(date){
+//     let hoursWorked = hoursWorkedOnDate(date);
+//     return hoursWorked * this.payPerHour
+// }
+
 function wagesEarnedOnDate(date){
-    let hoursWorked = hoursWorkedOnDate(date);
+    let hoursWorked = hoursWorkedOnDate.call(this, date);
     return hoursWorked * this.payPerHour
 }
 
@@ -84,3 +89,6 @@ const allWagesFor = function () {
     return payable
 }
 
+// function findEmployeeByFirstName(srcArray, firstName){
+//     ar
+// }
