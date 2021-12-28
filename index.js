@@ -89,25 +89,12 @@ const allWagesFor = function () {
 }
 
 function findEmployeeByFirstName(srcArray, firstName){
-    let findName = srcArray.map(name => name.firstName.toLowerCase() === firstName.toLowerCase());
+    let findName = srcArray.find(employee => employee.firstName.toLowerCase() === firstName.toLowerCase());
     return findName
 }
 
 function calculatePayroll(array){
-    array.map(object => {
-        let findDates = object.timeInEvents.map(findDates => findDates.date);
-        findDates.forEach(date => {
-            let totalWages = wagesEarnedOnDate(date)
-            console.log(totalWages)
-        })
-    })
-} 
-
-// function calculatePayroll(array){
-//     array.map(object => {
-//         let findDates = object.timeInEvents.map(findDates => findDates.date);
-//         findDates.forEach(date => {
-//             let totalWages = wagesEarnedOnDate(object, date)
-//         })
-//     })
-// } 
+    let test = array.map(employee => allWagesFor.call(employee))
+    const sum = (a, b) => (a + b);
+    return test.reduce(sum)
+}
