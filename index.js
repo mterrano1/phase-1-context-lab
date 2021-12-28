@@ -17,11 +17,6 @@ function createEmployeeRecords(arrays){
     return employeeData
 }
 
-// function createEmployeeRecords(arrays){
-//     const employeeData = arrays.map(array => createEmployeeRecord(array))
-//     return employeeData
-// }
-
 function createTimeInEvent(dateStamp){
     let [date, hour] = dateStamp.split(' ')
     const timeObj = {
@@ -60,6 +55,17 @@ function hoursWorkedOnDate(date){
 //     timeInEvents: [{type: 'TimeIn', hour: 1400, date: '2014-02-28'}, {type: 'TimeIn', hour: 0800, date: '2014-03-22'}],
 //     timeOutEvents: [{type: 'TimeOut', hour: 2200, date: '2014-02-28'}, {type: 'TimeOut', hour: 1700, date: '2014-03-22'}],
 // }
+
+// const austinPowers = {
+//     firstName: 'Austin',
+//     familyName: 'Powers',
+//     title: 'spy',
+//     payPerHour: 50,
+//     timeInEvents: [{type: 'TimeIn', hour: 1600, date: '2014-05-28'}, {type: 'TimeIn', hour: 0700, date: '2014-03-11'}, {type: 'TimeIn', hour: 1100, date: '2014-09-22'}],
+//     timeOutEvents: [{type: 'TimeOut', hour: 2000, date: '2014-05-28'}, {type: 'TimeOut', hour: 1200, date: '2014-03-11'}, {type: 'TimeOut', hour: 2100, date: '2014-09-22'}],
+// }
+
+// const arrayOfSpies = [jamesBond, austinPowers];
 
 function wagesEarnedOnDate(date){
     let hoursWorked = hoursWorkedOnDate.call(this, date);
