@@ -52,14 +52,13 @@ function hoursWorkedOnDate(date){
     return (endTime - startTime) / 100;
 }
 
-// function wagesEarnedOnDate(date){
-//     let hoursWorked = hoursWorkedOnDate(date);
-//     return hoursWorked * this.payPerHour
-// }
-
-// function wagesEarnedOnDate(date){
-//     let hoursWorked = hoursWorkedOnDate(date);
-//     return hoursWorked * this.payPerHour
+// const jamesBond = {
+//     firstName: 'James',
+//     familyName: 'Bond',
+//     title: 'spy',
+//     payPerHour: 100,
+//     timeInEvents: [{type: 'TimeIn', hour: 1400, date: '2014-02-28'}, {type: 'TimeIn', hour: 0800, date: '2014-03-22'}],
+//     timeOutEvents: [{type: 'TimeOut', hour: 2200, date: '2014-02-28'}, {type: 'TimeOut', hour: 1700, date: '2014-03-22'}],
 // }
 
 function wagesEarnedOnDate(date){
@@ -89,6 +88,26 @@ const allWagesFor = function () {
     return payable
 }
 
-// function findEmployeeByFirstName(srcArray, firstName){
-//     ar
-// }
+function findEmployeeByFirstName(srcArray, firstName){
+    let findName = srcArray.map(name => name.firstName.toLowerCase() === firstName.toLowerCase());
+    return findName
+}
+
+function calculatePayroll(array){
+    array.map(object => {
+        let findDates = object.timeInEvents.map(findDates => findDates.date);
+        findDates.forEach(date => {
+            let totalWages = wagesEarnedOnDate(date)
+            console.log(totalWages)
+        })
+    })
+} 
+
+// function calculatePayroll(array){
+//     array.map(object => {
+//         let findDates = object.timeInEvents.map(findDates => findDates.date);
+//         findDates.forEach(date => {
+//             let totalWages = wagesEarnedOnDate(object, date)
+//         })
+//     })
+// } 
